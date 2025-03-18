@@ -55,7 +55,7 @@ class GroupMonitorPlugin(Star):
             self.logger.error(f"写入日志失败: {e}")
     
     # 监听所有群消息
-    @filter.group_message()
+    @event_message_type(EventMessageType.ALL)
     async def monitor_group_message(self, event: AstrMessageEvent):
         """监听群消息"""
         # 获取群ID
